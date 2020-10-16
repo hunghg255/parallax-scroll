@@ -12,6 +12,7 @@ const isElementInViewport = (el)  => {
   );
 }
 
+
 // Parallax scroll, mousemove
 class Parallax {
   constructor(element) {
