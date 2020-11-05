@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Demo - Parallax Scroll</title>
 
   <style>
     section {
@@ -37,7 +37,7 @@
   <section class="sec1">
 
     <div class="wrapper1">
-      <div class="layer" data-speed="-4" data-rotate="true">
+      <div data-parallax-scroll data-direction="horizontal" data-speed="4">
         <img
           src="https://images.unsplash.com/photo-1593642634443-44adaa06623a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1225&q=80"
           alt="">
@@ -49,7 +49,7 @@
   <section class="sec2">
 
     <div class="wrapper2">
-      <div class="layer" data-speed="2" data-rotate="true">
+      <div data-parallax-scroll data-speed="4" data-rotate="true">
         <img
           src="https://images.unsplash.com/photo-1593642634443-44adaa06623a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1225&q=80"
           alt="">
@@ -61,7 +61,7 @@
   <section class="sec3">
 
     <div class="wrapper3">
-      <div class="layer" data-speed="-4">
+      <div data-parallax-scroll data-speed="-4">
         <img
           src="https://images.unsplash.com/photo-1593642634443-44adaa06623a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1225&q=80"
           alt="">
@@ -70,7 +70,7 @@
 
   </section>
 
-  <script src="./main.js"></script>
+  <script src="./parallax-scroll.min.js"></script>
 </body>
 
 </html>

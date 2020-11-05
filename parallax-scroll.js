@@ -1,14 +1,20 @@
 const isElementInViewport = (el)  => {
-  const rect = el.getBoundingClientRect();
+  let top = el.offsetTop;
+  let left = el.offsetLeft;
+  let width = el.offsetWidth;
+  let height = el.offsetHeight;
+
+  while(el.offsetParent) {
+    el = el.offsetParent;
+    top += el.offsetTop;
+    left += el.offsetLeft;
+  }
+
   return (
-    (rect.top <= 0
-      && rect.bottom >= 0)
-    ||
-    (rect.bottom >= (window.innerHeight || document.documentElement.clientHeight) &&
-      rect.top <= (window.innerHeight || document.documentElement.clientHeight))
-    ||
-    (rect.top >= 0 &&
-      rect.bottom <= (window.innerHeight || document.documentElement.clientHeight))
+    top >= window.pageYOffset &&
+    left >= window.pageXOffset &&
+    (top + height) <= (window.pageYOffset + window.innerHeight) &&
+    (left + width) <= (window.pageXOffset + window.innerWidth)
   );
 }
 
@@ -17,7 +23,7 @@ const isElementInViewport = (el)  => {
 class Parallax {
   constructor(element) {
     this.element = element;
-    this.speed = element.dataset.speed;
+    this.speed = element.dataset.speed || 4;
     this.distance = 0;
     this.tweened = 0;
     this.run = false;
@@ -79,11 +85,10 @@ class Parallax {
 }
 
 document.addEventListener('DOMContentLoaded', function() {
-  const childs = Array.from(document.querySelectorAll('.layer'));
+  const childs = Array.from(document.querySelectorAll('[data-parallax-scroll]'));
+  if (!childs.length) return;
   for (let i = 0, length = childs.length; i < length; i++) {
     const p = new Parallax(childs[i]);
     p.getPostionScroll();
   }
 }, false);
-
-// new Parallax('.layer')
