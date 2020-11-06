@@ -3,7 +3,7 @@
 ### Thêm script này vào thẻ ```<head></head>```
 
 ```
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/hunghg255/parallax-scroll/parallax-scroll.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/hunghg255/parallax-scroll@v1.0/parallax-scroll.min.js"></script>
 ```
 
 ### Thêm 1 số data-attribute
